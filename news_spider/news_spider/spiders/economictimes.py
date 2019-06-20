@@ -1,6 +1,5 @@
 import scrapy
 from ..items import NewsSpiderItem #Container Class
-import re
 
 class NewsSpider(scrapy.Spider):
     name = "economictimes"
@@ -18,11 +17,19 @@ class NewsSpider(scrapy.Spider):
         titles=response.css(".eachStory a::text").extract()
 
         for title, article_link in zip(titles, article_links):
-            items['title']=title
-            goto_link="https://economictimes.indiatimes.com"+article_link
-            items['article_link']=goto_link
-            yield items
+            items = NewsSpiderItem()
+            items['title'] = title
+            goto_link = "https://economictimes.indiatimes.com" + article_link
+            items['article_link'] = goto_link
 
+            request = scrapy.Request(goto_link, callback=self.parse_article)
+            request.meta['items'] = items
 
+            yield request
 
-
+    def parse_article(self, response):
+        items = response.meta['items']
+        article = response.css(".Normal::text").extract()
+        items['article'] = [i.replace('\n', '') for i in article]
+        items['date'] = response.css(".publish_on::text").extract()
+        yield items

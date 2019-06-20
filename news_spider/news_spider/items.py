@@ -13,7 +13,6 @@ class NewsSpiderItem(scrapy.Item):
     # name = scrapy.Field()
     title = scrapy.Field()
     article_link = scrapy.Field()
-    #date = scrapy.Field()
-    #summary = scrapy.Field()
+    date = scrapy.Field()
     article = scrapy.Field()
     pass
