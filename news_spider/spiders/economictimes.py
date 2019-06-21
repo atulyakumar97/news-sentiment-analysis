@@ -1,14 +1,20 @@
 import scrapy
-from ..items import NewsSpiderItem #Container Class
+from ..items import NewsSpiderItem # Container Class
+
 
 class NewsSpider(scrapy.Spider):
     name = "economictimes"
-    start_urls = [
+    companyname=input("Enter company name : ")
+
+    if companyname =="ilfs":
+        start_urls = [
         'https://economictimes.indiatimes.com/ilfs-investment-managers-ltd/stocksupdate/companyid-12694.cms',
         'https://economictimes.indiatimes.com/ilfs-transportation-networks-ltd/stocksupdate/companyid-31106.cms',
         'https://economictimes.indiatimes.com/ilfs-engineering-construction-company-ltd/stocksupdate/companyid-19811.cms'
 
     ]
+    else:
+        exit(0)
 
     def parse(self, response):
         items = NewsSpiderItem()
