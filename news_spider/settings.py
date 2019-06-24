@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+# Must be uncommented to activate pipeline
 ITEM_PIPELINES = {
 #    'news_spider.pipelines.NewsSpiderPipeline': 300,
       'news_spider.pipelines.CsvPipeline': 300,

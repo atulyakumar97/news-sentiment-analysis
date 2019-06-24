@@ -10,8 +10,9 @@ import scrapy
 
 class NewsSpiderItem(scrapy.Item):
     # define the fields for your item here like:
-    title = scrapy.Field()
-    article_link = scrapy.Field()
-    date = scrapy.Field()
-    article = scrapy.Field()
+    title = scrapy.Field()                    # Store article title (final level)
+    article_link = scrapy.Field()             # Store article link (middle level)
+    date = scrapy.Field()                     # Store article date (final level)
+    time = scrapy.Field()                     # Store article time (final level)
+    article = scrapy.Field()                  # Store article text (final level)
     pass
