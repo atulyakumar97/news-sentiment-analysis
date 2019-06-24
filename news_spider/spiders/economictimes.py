@@ -1,5 +1,6 @@
 import scrapy
 from ..items import NewsSpiderItem # Container Class
+import re
 
 class NewsSpider(scrapy.Spider):
     name = "economictimes"
@@ -27,7 +28,8 @@ class NewsSpider(scrapy.Spider):
 
         for i, j in companyzip:
             if i.upper() == companyinput.upper():
-                 nexturl = "https://economictimes.indiatimes.com"+j.replace('/stocks/', '/stocksupdate/')
+                 next_urlend = re.search("companyid-[0-9]*.cms", j).group()
+                 nexturl = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend
                  break
 
         print('Next url = '+nexturl)
@@ -39,19 +41,26 @@ class NewsSpider(scrapy.Spider):
     def parse_company(self, response):
         items = NewsSpiderItem()
 
-        article_links = response.css(".eachStory a").xpath("@href").extract()
-        titles = response.css(".eachStory a::text").extract()
+        article_links = response.css("a").xpath("@href").extract()
+        #titles = response.css("a::text").extract()
 
-        for title, article_link in zip(titles, article_links):
-            items = NewsSpiderItem()
+        for article_link in article_links:
+            if 'javascript' in article_link:
+                pass
+            if 'plus.google' in article_link:
+                pass
 
-            goto_link = "https://economictimes.indiatimes.com" + article_link
-            items['article_link'] = goto_link
+            else:
 
-            request = scrapy.Request(goto_link, callback=self.parse_article)
-            request.meta['items'] = items
+                items = NewsSpiderItem()
 
-            yield request
+                goto_link = "https://economictimes.indiatimes.com" + article_link
+                items['article_link'] = goto_link
+
+                request = scrapy.Request(goto_link, callback=self.parse_article)
+                request.meta['items'] = items
+
+                yield request
 
     def parse_article(self, response):
         items = response.meta['items']
@@ -61,4 +70,3 @@ class NewsSpider(scrapy.Spider):
         items['date'] = response.css(".publish_on::text").extract()
 
         yield items
-
