@@ -4,6 +4,7 @@ import re
 from datetime import datetime
 import string
 import pandas as pd
+from nsepy import get_history
 
 class NewsSpider(scrapy.Spider):
     global csvinput
@@ -23,7 +24,6 @@ class NewsSpider(scrapy.Spider):
 
         companieslist = response.css('.companyList a::text').extract()  # Scrape list of companies beginning w/ alphabet
         companieslist = list(map(str.upper, companieslist))
-        print(companieslist)
         companieslisturl = response.css('.companyList a').xpath("@href").extract()  # Scrape company URLs
 
         nextjump = []
@@ -31,19 +31,36 @@ class NewsSpider(scrapy.Spider):
             for i, j in zip(companieslist, companieslisturl):
                 if k == i:
                      next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
-                     nexturl = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
-                     nextjump.append([i, nexturl])
+                     nexturl1 = "https://economictimes.indiatimes.com"+j
+                     nexturl2 = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
+                     nextjump.append([i, nexturl1, nexturl2])
                 else:
                     pass
 
         for next in nextjump:
             items = NewsSpiderItem()
             items['companyname'] = next[0]
-            request = scrapy.Request(next[1], callback=self.parse_company)
-            request.meta['items'] = items
+            items['ztemp'] = next[2]
 
+            request = scrapy.Request(next[1], callback=self.parse_stock)
+            request.meta['items'] = items
             yield request
 
+            # request = scrapy.Request(next[2], callback=self.parse_company)
+            # request.meta['items'] = items
+            # yield request
+
+    def parse_stock(self, response):
+        items = response.meta['items']
+        stockname = response.css("title::text").extract()[0].split()[0]
+        items['stockname'] = stockname
+
+        ztemp = items['ztemp']
+
+        request = scrapy.Request(ztemp, callback=self.parse_company)
+        request.meta['items'] = items
+
+        yield request
 
     def parse_company(self, response):
 
@@ -86,6 +103,7 @@ class NewsSpider(scrapy.Spider):
         items['article'] = article
 
         title = response.css('.clearfix.title::text').extract()  # Scrape title text
+        title = title[0]
         items['title'] = title.encode(encoding='ascii', errors='ignore')
 
         dateandtimelist = response.css(".publish_on::text").extract()
@@ -103,4 +121,13 @@ class NewsSpider(scrapy.Spider):
         items['date'] = date
         items['time'] = time
 
+        try:
+            stockdata = get_history(symbol=items['stockname'], start=datetime_object.date(), end=datetime_object.date())
+            items['close']=stockdata['Close'][0]
+            items['prevclose']=stockdata['Prev Close'][0]
+        except:
+            items['close'] = 'NA'
+            items['prevclose'] = 'NA'
+
+        items['ztemp']=''
         yield items
