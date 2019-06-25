@@ -3,57 +3,59 @@ from ..items import NewsSpiderItem  # Container Class
 import re
 from datetime import datetime
 import string
-
+import pandas as pd
 
 class NewsSpider(scrapy.Spider):
-    name = "economictimes"
-    global alphabet
-    alphabet = input("Enter company's first alphabet ex. a for Apple Inc : ")
+    global csvinput
+    csvinput = pd.read_csv("input.csv")
+    csvinput = [i[0] for i in csvinput.values.tolist()]
+    csvinput = list(map(str.upper, csvinput))
+    print(csvinput)
 
-    start_urls = [
-        'https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+alphabet[0]
-    ]
+    name = "economictimes"
+
+    # All start URLs specified for faster access
+    start_urls_a = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+i for i in string.ascii_lowercase[:27]]
+    start_urls_0 = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+str(i) for i in list(range(1,10))]
+    start_urls = start_urls_a+start_urls_0
 
     def parse(self, response):
 
         companieslist = response.css('.companyList a::text').extract()  # Scrape list of companies beginning w/ alphabet
+        companieslist = list(map(str.upper, companieslist))
+        print(companieslist)
         companieslisturl = response.css('.companyList a').xpath("@href").extract()  # Scrape company URLs
 
-        print('Select one of the following companies to fetch their information')
-        sortedlist = []
+        nextjump = []
+        for k in csvinput:
+            for i, j in zip(companieslist, companieslisturl):
+                if k == i:
+                     next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
+                     nexturl = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
+                     nextjump.append([i, nexturl])
+                else:
+                    pass
 
-        # Ignore all companies that don't begin with the alphabet
-        companyzip = zip(companieslist, companieslisturl)
-        [sortedlist.append(i.upper()) for i, j in companyzip if i[0].upper() == alphabet[0].upper()]
-        sortedlist.sort()  # Sorting alphabetically
-        print(*sortedlist, sep="\n")  # Finally prints list of all companies alphabetically
+        for next in nextjump:
+            items = NewsSpiderItem()
+            items['companyname'] = next[0]
+            request = scrapy.Request(next[1], callback=self.parse_company)
+            request.meta['items'] = items
 
-        companyinput = input("Enter company name : ")  # User inputs full company name from the displayed list
+            yield request
 
-        companyzip = zip(companieslist, companieslisturl)  # re-zipping
-        for i, j in companyzip:
-            if i.upper() == companyinput.upper():
-                 next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
-                 nexturl = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
-                 break
-
-        print('Next url = '+nexturl)
-        request = scrapy.Request(nexturl, callback=self.parse_company)  # goto company news list url scraped from above
-        yield request
 
     def parse_company(self, response):
-        items = NewsSpiderItem()
 
         article_links = response.css("a").xpath("@href").extract()  # scrape all article links
 
         for article_link in article_links:      # iterating through all article links
-            if 'javascript' in article_link:
-                pass                            # ignoring javascript:void(0)
-            if 'plus.google' in article_link:
+            if 'javascript' in article_link or 'plus.google' in article_link:
                 pass    # Ignoring https://plus.google.com/share?url=http://economictimes.indiatimes.com/....
-
+            elif 'economictimes.indiatimes.com' in article_link:
+                pass
             else:
-                items = NewsSpiderItem()
+                items = response.meta['items']
 
                 goto_link = "https://economictimes.indiatimes.com" + article_link
                 items['article_link'] = goto_link
@@ -83,7 +85,8 @@ class NewsSpider(scrapy.Spider):
 
         items['article'] = article
 
-        items['title'] = response.css('.clearfix.title::text').extract()  # Scrape title text
+        title = response.css('.clearfix.title::text').extract()  # Scrape title text
+        items['title'] = title.encode(encoding='ascii', errors='ignore')
 
         dateandtimelist = response.css(".publish_on::text").extract()
         dateandtime = dateandtimelist[0]  # single item list of string

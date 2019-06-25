@@ -15,4 +15,5 @@ class NewsSpiderItem(scrapy.Item):
     date = scrapy.Field()                     # Store article date (final level)
     time = scrapy.Field()                     # Store article time (final level)
     article = scrapy.Field()                  # Store article text (final level)
+    companyname = scrapy.Field()              # Store company name (initial level)
     pass
