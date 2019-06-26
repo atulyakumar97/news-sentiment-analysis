@@ -12,13 +12,13 @@ import pandas as pd
 data = pd.read_csv("data.csv")
 data = data.drop(columns="ztemp")
 
-input = pd.read_csv("input.csv")
+input = pd.read_excel('input.xlsx', sheet_name='input')
+input = input.drop(columns='WARNING')
+
 keywords = input['KEYWORDS'].tolist()
 output = pd.DataFrame(columns=['COMPANYNAME']+keywords)
 
-companylist = data['COMPANYNAME'].tolist()
-uniquecompanylist = []
-[uniquecompanylist.append(i) for i in companylist if i not in uniquecompanylist]
+uniquecompanylist = input['COMPANYNAME'].dropna().unique().tolist()
 
 for company in uniquecompanylist:
     allwords = {}
@@ -40,5 +40,4 @@ for company in uniquecompanylist:
     allwords['COMPANYNAME'] = company
     output = output.append(allwords, ignore_index=True)
 
-print(output.describe())
-output.to_csv('output.csv')
+output.to_csv('output.csv', index=False)

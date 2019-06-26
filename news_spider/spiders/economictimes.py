@@ -8,11 +8,10 @@ from nsepy import get_history
 
 
 class NewsSpider(scrapy.Spider):
-    global csvinput
-    csvinput = pd.read_csv("input.csv")['COMPANYNAME'].dropna()
-    csvinput = [i for i in csvinput.values.tolist()]
-    csvinput = list(map(str.upper, csvinput))
-    print(csvinput)
+    global excelinput
+
+    excelinput = pd.read_excel('input.xlsx', sheet_name='input')['COMPANYNAME']
+    excelinput = excelinput.dropna().tolist()
 
     name = "economictimes"
 
@@ -28,7 +27,7 @@ class NewsSpider(scrapy.Spider):
         companieslisturl = response.css('.companyList a').xpath("@href").extract()  # Scrape company URLs
 
         nextjump = []
-        for k in csvinput:
+        for k in excelinput:
             for i, j in zip(companieslist, companieslisturl):
                 if k == i:
                      next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
