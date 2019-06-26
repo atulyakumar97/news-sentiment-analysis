@@ -6,10 +6,11 @@ import string
 import pandas as pd
 from nsepy import get_history
 
+
 class NewsSpider(scrapy.Spider):
     global csvinput
-    csvinput = pd.read_csv("input.csv")
-    csvinput = [i[0] for i in csvinput.values.tolist()]
+    csvinput = pd.read_csv("input.csv")['COMPANYNAME'].dropna()
+    csvinput = [i for i in csvinput.values.tolist()]
     csvinput = list(map(str.upper, csvinput))
     print(csvinput)
 
@@ -39,16 +40,12 @@ class NewsSpider(scrapy.Spider):
 
         for next in nextjump:
             items = NewsSpiderItem()
-            items['companyname'] = next[0]
+            items['COMPANYNAME'] = next[0]
             items['ztemp'] = next[2]
 
             request = scrapy.Request(next[1], callback=self.parse_stock)
             request.meta['items'] = items
             yield request
-
-            # request = scrapy.Request(next[2], callback=self.parse_company)
-            # request.meta['items'] = items
-            # yield request
 
     def parse_stock(self, response):
         items = response.meta['items']
@@ -103,6 +100,8 @@ class NewsSpider(scrapy.Spider):
         items['article'] = article
 
         title = response.css('.clearfix.title::text').extract()  # Scrape title text
+        title = [i.replace('\n', '') for i in title]            # newline characters replaced with ''
+        title = ' '.join(title)
         title = title[0]
         items['title'] = title.encode(encoding='ascii', errors='ignore')
 
