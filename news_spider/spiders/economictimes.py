@@ -12,12 +12,13 @@ class NewsSpider(scrapy.Spider):
 
     excelinput = pd.read_excel('input.xlsx', sheet_name='input')['COMPANYNAME']
     excelinput = excelinput.dropna().tolist()
+    excelinput = [i.upper() for i in excelinput]
 
     name = "economictimes"
 
     # All start URLs specified for faster access
     start_urls_a = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+i for i in string.ascii_lowercase[:27]]
-    start_urls_0 = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+str(i) for i in list(range(1,10))]
+    start_urls_0 = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+str(i) for i in list(range(1, 10))]
     start_urls = start_urls_a+start_urls_0
 
     def parse(self, response):
@@ -25,17 +26,18 @@ class NewsSpider(scrapy.Spider):
         companieslist = response.css('.companyList a::text').extract()  # Scrape list of companies beginning w/ alphabet
         companieslist = list(map(str.upper, companieslist))
         companieslisturl = response.css('.companyList a').xpath("@href").extract()  # Scrape company URLs
-
         nextjump = []
+
         for k in excelinput:
             for i, j in zip(companieslist, companieslisturl):
                 if k == i:
+
                      next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
                      nexturl1 = "https://economictimes.indiatimes.com"+j
                      nexturl2 = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
                      nextjump.append([i, nexturl1, nexturl2])
                 else:
-                    pass
+                     pass
 
         for next in nextjump:
             items = NewsSpiderItem()
@@ -98,10 +100,7 @@ class NewsSpider(scrapy.Spider):
 
         items['article'] = article
 
-        title = response.css('.clearfix.title::text').extract()  # Scrape title text
-        title = [i.replace('\n', '') for i in title]            # newline characters replaced with ''
-        title = ' '.join(title)
-        title = title[0]
+        title = response.css('.clearfix.title::text').extract()[0]  # Scrape title text
         items['title'] = title.encode(encoding='ascii', errors='ignore')
 
         dateandtimelist = response.css(".publish_on::text").extract()
