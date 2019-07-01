@@ -5,7 +5,7 @@ from datetime import datetime
 import string
 import pandas as pd
 from nsepy import get_history
-
+from difflib import get_close_matches
 
 class NewsSpider(scrapy.Spider):
     global excelinput
@@ -29,15 +29,16 @@ class NewsSpider(scrapy.Spider):
         nextjump = []
 
         for k in excelinput:
-            for i, j in zip(companieslist, companieslisturl):
-                if k == i:
+            if len(get_close_matches(k, companieslist, cutoff=0.65)) > 0:
 
-                     next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
-                     nexturl1 = "https://economictimes.indiatimes.com"+j
-                     nexturl2 = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
-                     nextjump.append([i, nexturl1, nexturl2])
-                else:
-                     pass
+                closest_match = get_close_matches(k, companieslist, cutoff=0.65)[0]
+
+                for i, j in zip(companieslist, companieslisturl):
+                    if closest_match == i:
+                         next_urlend = re.search("companyid-[0-9]*.cms", j).group()  # extract ending url using regex
+                         nexturl1 = "https://economictimes.indiatimes.com"+j
+                         nexturl2 = "https://economictimes.indiatimes.com"+'/stocksupdate_news/'+next_urlend  # company news url
+                         nextjump.append([i, nexturl1, nexturl2])
 
         for next in nextjump:
             items = NewsSpiderItem()
