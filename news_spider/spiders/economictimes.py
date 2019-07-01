@@ -7,8 +7,13 @@ import pandas as pd
 from nsepy import get_history
 from difflib import get_close_matches
 
+
 class NewsSpider(scrapy.Spider):
     global excelinput
+    global threshold
+
+    threshold = pd.read_excel('input.xlsx', sheet_name='input')['THRESHOLD']
+    threshold = float(threshold.dropna().tolist()[0])
 
     excelinput = pd.read_excel('input.xlsx', sheet_name='input')['COMPANYNAME']
     excelinput = excelinput.dropna().tolist()
@@ -29,9 +34,9 @@ class NewsSpider(scrapy.Spider):
         nextjump = []
 
         for k in excelinput:
-            if len(get_close_matches(k, companieslist, cutoff=0.65)) > 0:
+            if len(get_close_matches(k.upper(), companieslist, cutoff=threshold)) > 0:
 
-                closest_match = get_close_matches(k, companieslist, cutoff=0.65)[0]
+                closest_match = get_close_matches(k.upper(), companieslist, cutoff=threshold)[0]
 
                 for i, j in zip(companieslist, companieslisturl):
                     if closest_match == i:
@@ -72,10 +77,9 @@ class NewsSpider(scrapy.Spider):
                 pass
             else:
                 items = response.meta['items']
+                #items['article_link'] = goto_link
 
                 goto_link = "https://economictimes.indiatimes.com" + article_link
-                items['article_link'] = goto_link
-
                 request = scrapy.Request(goto_link, callback=self.parse_article)
                 request.meta['items'] = items
 
@@ -83,7 +87,7 @@ class NewsSpider(scrapy.Spider):
 
     def parse_article(self, response):
         items = response.meta['items']
-
+        items['article_link'] = response.request.url
         # text cleaning
         article = response.css(".Normal::text").extract()           # Scrape article text
         article = [i.replace('\n', '') for i in article]            # newline characters replaced with ''
@@ -93,7 +97,7 @@ class NewsSpider(scrapy.Spider):
         words = article.split()                                     # Split article by whitespace into words
 
         # remove punctuation from each word
-        table = str.maketrans(' ', ' ', string.punctuation)
+        table = str.maketrans('  ', '  ', string.punctuation)
         stripped = [w.translate(table) for w in words]
         article = ' '.join(stripped)
 
