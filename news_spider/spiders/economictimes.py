@@ -19,7 +19,7 @@ class NewsSpider(scrapy.Spider):
     excelinput = excelinput.dropna().tolist()
     excelinput = [i.upper() for i in excelinput]
 
-    name = "economictimes"
+    name = "news_spider"
 
     # All start URLs specified for faster access
     start_urls_a = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+i for i in string.ascii_lowercase[:27]]
