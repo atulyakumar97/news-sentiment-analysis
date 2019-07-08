@@ -9,6 +9,8 @@ from difflib import get_close_matches
 
 
 class NewsSpider(scrapy.Spider):
+    name = "economictimes"
+
     global excelinput
     global threshold
 
@@ -18,8 +20,6 @@ class NewsSpider(scrapy.Spider):
     excelinput = pd.read_excel('input.xlsx', sheet_name='input')['COMPANYNAME']
     excelinput = excelinput.dropna().tolist()
     excelinput = [i.upper() for i in excelinput]
-
-    name = "news_spider"
 
     # All start URLs specified for faster access
     start_urls_a = ['https://economictimes.indiatimes.com/markets/stocks/stock-quotes?ticker='+i for i in string.ascii_lowercase[:27]]

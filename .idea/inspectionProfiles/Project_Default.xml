@@ -4,10 +4,14 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="3">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="yfinance" />
             <item index="1" class="java.lang.String" itemvalue="fix-yahoo-finance" />
             <item index="2" class="java.lang.String" itemvalue="yahoo-finance" />
+            <item index="3" class="java.lang.String" itemvalue="dateutils" />
+            <item index="4" class="java.lang.String" itemvalue="multitasking" />
+            <item index="5" class="java.lang.String" itemvalue="py2exe" />
+            <item index="6" class="java.lang.String" itemvalue="simplejson" />
           </list>
         </value>
       </option>
