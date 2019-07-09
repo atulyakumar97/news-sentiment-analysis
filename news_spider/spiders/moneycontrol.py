@@ -30,4 +30,16 @@ class NewsSpider(scrapy.Spider):
         companieslist = response.css(".MT10 .bl_12::text").extract()  # Scrape list of companies beginning w/ alphabet
         companieslist = list(map(str.upper, companieslist))  # Company names to uppercase
         companieslisturl = response.css(".MT10 .bl_12").xpath("@href").extract()  # Scrape company URLs
+
+        companiesID1 = [i.split(sep="/")[-1] for i in companieslisturl]
+        companiesID2 = [re.search("^[A-Z]*",i).group()for i in companiesID1]
+
+        # stockname = response.css(".gry10:nth-child(1)::text").extract()[1].strip().split()[1]
+        print(companieslist)
+        print(companieslisturl)
+        print(companiesID1)
+        print(companiesID2)
         yield response
+
+# datetime.now().year
+#https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id=IDF01&scat=&pageno=2&next=0&durationType=Y&Year=2018&duration=1&news_type=
