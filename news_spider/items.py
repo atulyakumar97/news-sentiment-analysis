@@ -19,5 +19,6 @@ class NewsSpiderItem(scrapy.Item):
     stockname = scrapy.Field()                # Store stock name (middle level 0)
     prevclose = scrapy.Field()                # Previous day's closing stock price (final level)
     close = scrapy.Field()                    # Closing stock price (final level)
-    ztemp = scrapy.Field()                     # Store any temporary data
+    ztemp = scrapy.Field()                    # Store any temporary data
+    website = scrapy.Field()                  # Store News Website Name
     pass

@@ -6,11 +6,11 @@ import string
 import pandas as pd
 from nsepy import get_history
 from difflib import get_close_matches
+import os
 
 
 class NewsSpider(scrapy.Spider):
     name = "economictimes"
-
     global excelinput
     global threshold
 
@@ -132,4 +132,5 @@ class NewsSpider(scrapy.Spider):
             items['prevclose'] = 'NA'
 
         items['ztemp']=''
+        items['website'] = 'economictimes'
         yield items

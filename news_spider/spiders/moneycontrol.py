@@ -10,7 +10,6 @@ from difflib import get_close_matches
 
 class NewsSpider(scrapy.Spider):
     name = "moneycontrol"
-
     global excelinput
     global threshold
     global yearfrom
@@ -36,7 +35,6 @@ class NewsSpider(scrapy.Spider):
         companieslisturl = response.css(".MT10 .bl_12").xpath("@href").extract()  # Scrape company URLs
         companiesID1 = [i.split(sep="/")[-1] for i in companieslisturl]
         companiesID2 = [re.search("^[A-Z]*", i).group()for i in companiesID1]
-        nextjump = []
 
         for k in excelinput:
             if len(get_close_matches(k.upper(), companieslist, cutoff=threshold)) > 0:
@@ -45,7 +43,7 @@ class NewsSpider(scrapy.Spider):
                     if closest_match == i:
                         for year in range(int(yearfrom), int(datetime.now().year)+1):
                             for pagenum in range(1, 16):
-                                nexturl1 = "https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id=+"+j+"&scat=&pageno="+str(pagenum)+"&next=0&durationType=Y&Year="+str(year)+"&duration=1&news_type="
+                                nexturl1 = "https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id="+j+"&scat=&pageno="+str(pagenum)+"&next=0&durationType=Y&Year="+str(year)+"&duration=1&news_type="
                                 nexturl2 = "https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id="+l+"&scat=&pageno="+str(pagenum)+"&next=0&durationType=Y&Year="+str(year)+"&duration=1&news_type="
 
                                 print(nexturl1)
@@ -61,7 +59,7 @@ class NewsSpider(scrapy.Spider):
                                 request.meta['items'] = items
                                 yield request
 
-    def parse_company(self,response):
+    def parse_company(self, response):
         items = response.meta['items']
 
         links = response.css(".MT15 .FL a").xpath("@href").extract()
@@ -71,6 +69,8 @@ class NewsSpider(scrapy.Spider):
             items['stockname'] = response.css(".gry10:nth-child(1)::text").extract()[1].strip().split()[1]
         except:
             pass
+
+        items['ztemp'] = response.request.url
 
         for link in article_links:
             request = scrapy.Request(link, callback=self.parse_article)
@@ -125,4 +125,5 @@ class NewsSpider(scrapy.Spider):
             items['prevclose'] = 'NA'
 
         items['ztemp']=''
+        items['website'] = 'moneycontrol'
         yield items

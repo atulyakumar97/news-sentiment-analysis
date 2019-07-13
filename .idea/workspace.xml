@@ -6,22 +6,12 @@
       <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/BANK OF BARODA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/BANK OF BARODA.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BANK OF INDIA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BHARAT PETROLEUM CORPORATION LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BHARAT PETROLEUM CORPORATION.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BHARTI AIRTEL LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BHARTI AIRTEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/CRISIL LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/ICICI BANK LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/ICICI BANK.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/IDBI BANK.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/INDIABULLS VENTURES LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/MPHASIS LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/WIPRO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/TATA STEEL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/TATA STEEL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_spider/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrape.exe" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +24,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="236">
               <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -44,10 +34,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_spider/items.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="105" column="34" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="105" selection-end-column="34" />
+            <state relative-caret-position="204">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -56,22 +67,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/items.py">
+        <entry file="file://$PROJECT_DIR$/news_spider/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -127,16 +126,16 @@
         <option value="$PROJECT_DIR$/news_spider/news_spider/spiders/economictimes.py" />
         <option value="$PROJECT_DIR$/news_spider/__init__.py" />
         <option value="$PROJECT_DIR$/main2.py" />
-        <option value="$PROJECT_DIR$/news_spider/pipelines.py" />
         <option value="$PROJECT_DIR$/news_spider/settings.py" />
-        <option value="$PROJECT_DIR$/news_spider/items.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/analysis.py" />
         <option value="$PROJECT_DIR$/export.py" />
-        <option value="$PROJECT_DIR$/news_spider/spiders/economictimes.py" />
         <option value="$PROJECT_DIR$/analyse.py" />
         <option value="$PROJECT_DIR$/scrape.py" />
+        <option value="$PROJECT_DIR$/news_spider/items.py" />
+        <option value="$PROJECT_DIR$/news_spider/spiders/economictimes.py" />
         <option value="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" />
+        <option value="$PROJECT_DIR$/news_spider/pipelines.py" />
       </list>
     </option>
   </component>
@@ -361,7 +360,7 @@
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3268921" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.38808373" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.5169082" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.4090177" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.31561998" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -398,13 +397,6 @@
     <entry file="file://$PROJECT_DIR$/analysis.py" />
     <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/export.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="97" selection-start-line="17" selection-start-column="97" selection-end-line="17" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
@@ -424,7 +416,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scrape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="236">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -432,27 +424,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/news_spider/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_spider/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="105" column="34" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="105" selection-end-column="34" />
+        <state relative-caret-position="204">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+        <state relative-caret-position="31">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
