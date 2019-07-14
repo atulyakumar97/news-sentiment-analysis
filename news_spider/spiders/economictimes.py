@@ -56,7 +56,7 @@ class NewsSpider(scrapy.Spider):
 
     def parse_stock(self, response):
         items = response.meta['items']
-        stockname = response.css("title::text").extract()[0].split()[0]
+        stockname = response.css("meta").xpath("@content").extract()[3][:-2]
         items['stockname'] = stockname
 
         ztemp = items['ztemp']

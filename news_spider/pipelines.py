@@ -15,7 +15,10 @@ from scrapy.exporters import CsvItemExporter
 class CsvPipeline(object):  # modify items_pipeline in settings.py to invoke pipelining
 
     def __init__(self):
-        self.file = open("data.csv", 'wb')          # open csv file in wb = writing + binary mode
+        self.files = {}
+
+    def open_spider(self, spider):
+        self.file = open("%s.csv" % spider.name, 'wb')         # open csv file in wb = writing + binary mode
         self.exporter = CsvItemExporter(self.file)
         self.exporter.start_exporting()
 

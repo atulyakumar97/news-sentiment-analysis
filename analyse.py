@@ -5,7 +5,6 @@ from nltk.corpus import wordnet as wn
 import os
 
 data = pd.read_csv("data.csv")  # read output of scrape.py
-data = data.drop(columns="ztemp")
 
 inputdf = pd.read_excel('input.xlsx', sheet_name='input')  # read input
 inputdf = inputdf.drop(columns='WARNING')

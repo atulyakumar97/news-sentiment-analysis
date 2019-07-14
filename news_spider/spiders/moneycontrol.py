@@ -46,8 +46,6 @@ class NewsSpider(scrapy.Spider):
                                 nexturl1 = "https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id="+j+"&scat=&pageno="+str(pagenum)+"&next=0&durationType=Y&Year="+str(year)+"&duration=1&news_type="
                                 nexturl2 = "https://www.moneycontrol.com/stocks/company_info/stock_news.php?sc_id="+l+"&scat=&pageno="+str(pagenum)+"&next=0&durationType=Y&Year="+str(year)+"&duration=1&news_type="
 
-                                print(nexturl1)
-                                print(nexturl2)
                                 items = NewsSpiderItem()
                                 items['COMPANYNAME'] = i
 
