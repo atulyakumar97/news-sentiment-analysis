@@ -81,4 +81,6 @@ for i in inputcompanylist:
 
 output.to_csv('output.csv', index=False)  # write to csv
 
-ignore = input('\n\noutput.csv ready.Press Enter to end program.\n\n')
+print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
+ignore = input('output.csv ready.Press Enter to end program.')
+

@@ -3,17 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="b81d948a-877c-4181-81e1-032edfa0d499" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyse.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyse.spec" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/xref-scrape.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/xref-scrape.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/BANK OF BARODA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/BANK OF BARODA.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/TATA STEEL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/TATA STEEL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrape.exe" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape.spec" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.spec" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scrape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="527">
+              <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -38,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/analyse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="454">
+              <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -59,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
+            <state relative-caret-position="2125">
               <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -71,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
+            <state relative-caret-position="2040">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -189,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,7 +229,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,11 +355,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.scrape" />
       <item itemvalue="Python.analyse" />
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.main2" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.moneycontrol" />
+      <item itemvalue="Python.scrape" />
     </list>
     <recent_temporary>
       <list>
@@ -424,16 +437,6 @@
     <entry file="file://$PROJECT_DIR$/analysis.py" />
     <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/export.py" />
-    <entry file="file://$PROJECT_DIR$/analyse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/items.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -443,7 +446,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
+        <state relative-caret-position="2125">
           <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -453,7 +456,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
+        <state relative-caret-position="2040">
           <caret line="127" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -475,10 +478,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/analyse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scrape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="527">
+          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

@@ -39,4 +39,5 @@ if flag1 == 0 and flag2 == 1:
 data = data.drop(columns="ztemp")
 data.to_csv('data.csv', index=False)  # write to csv
 
-ignore = input('\n\nData Scraped. Press Enter to continue.\n\n')
+print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
+ignore = input('Data Scraped. Press Enter to continue.')

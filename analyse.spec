@@ -29,4 +29,5 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=True )
+          console=True,
+          icon='C:\\Users\\Atulya\\Documents\\GitHub\\news-sentiment-analysis\\analyse.ico' )
