@@ -95,17 +95,18 @@ class NewsSpider(scrapy.Spider):
         article = article.lower()                                   # convert to lower case
 
         words = article.split()                                     # Split article by whitespace into words
-
         # remove punctuation from each word
         table = str.maketrans('  ', '  ', string.punctuation)
         stripped = [w.translate(table) for w in words]
         article = ' '.join(stripped)
-
         article = article.encode(encoding='ascii', errors='ignore')  # Encoding article text in
-
         items['article'] = article
 
         title = response.css('.clearfix.title::text').extract()[0]  # Scrape title text
+        title = title.lower()
+        words = title.split()
+        stripped = [w.translate(table) for w in words]
+        title = ' '.join(stripped)
         items['title'] = title.encode(encoding='ascii', errors='ignore')
 
         dateandtimelist = response.css(".publish_on::text").extract()

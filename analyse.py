@@ -4,10 +4,11 @@ import itertools
 from nltk.corpus import wordnet as wn
 import os
 
-data = pd.read_csv("data.csv")  # read output of scrape.py
+data = pd.read_csv("Scrape Output.csv")  # read output of scrape.py
 
 inputdf = pd.read_excel('input.xlsx', sheet_name='input')  # read input
 inputdf = inputdf.drop(columns='WARNING')
+inputdf = inputdf.drop(columns='WARNING2')
 
 datefrom = inputdf['DATEFROM'].dropna().tolist()[0]
 dateto = inputdf['DATETO'].dropna().tolist()[0]
@@ -15,18 +16,27 @@ dateto = inputdf['DATETO'].dropna().tolist()[0]
 keywords = inputdf['KEYWORDS'].tolist()
 output = pd.DataFrame(columns=['COMPANYNAME']+keywords)
 
+searchoption = inputdf['SEARCH OPTION'].tolist()[0]
+
 # column of dataframe, removed null values, only unique rows and converted to list
 uniquecompanylist = data['COMPANYNAME'].dropna().unique().tolist()
 inputcompanylist = inputdf['COMPANYNAME'].dropna().unique().tolist()
 
+if searchoption == 'Article Content':
+    searchdata = 'article'
+    folder = 'Article Content Log'
+elif searchoption == 'Article Title':
+    searchdata = 'title'
+    folder = 'Article Title Log'
+
 for company in uniquecompanylist:
     allwords = {}
-    articles = data.query("COMPANYNAME == "+'\''+company+'\'')['article'].tolist()  # for keyword counting
+    contents = data.query("COMPANYNAME == "+'\''+company+'\'')[searchdata].tolist()  # for keyword counting
     dates = data.query("COMPANYNAME == " + '\'' + company + '\'')['date'].tolist()
     links = data.query("COMPANYNAME == " + '\'' + company + '\'')['article_link'].tolist()  # for log\company.txt
 
     log = []
-    for date, article, link in zip(dates, articles, links):
+    for date, content, link in zip(dates, contents, links):
         datetime_object = datetime.strptime(date, '%d-%m-%Y')  # Scraped string to datetime object
         if datetime_object < datefrom or datetime_object > dateto:  # between datefrom and dateto
             continue
@@ -42,7 +52,7 @@ for company in uniquecompanylist:
             similarwords = list(dict.fromkeys(similarwords))  # remove repetitions
 
             for similarword in similarwords:
-                if similarword in article:
+                if similarword in content:
                     log.append(link)    # add url of article to log
                     if word in allwords:  # if keyword has been counted once before
                         allwords[word] = allwords[word] + 1
@@ -56,7 +66,7 @@ for company in uniquecompanylist:
             pass
     finallog = []
     [finallog.append(i) for i in log if i not in finallog]  # only unique URLs in finallog
-    f = open(os.path.dirname(os.path.abspath(__file__))+"\\logs\\"+company+".txt", 'w')  # open log file
+    f = open(os.path.dirname(os.path.abspath(__file__))+"\\logs\\"+folder+"\\"+company+".txt", 'w')  # open log file
     f.write('\n'.join(finallog))  # write log
     f.close()
 
@@ -79,8 +89,8 @@ for i in inputcompanylist:
             allwords[word] = 'NA'   # adds NA for all keywords since company is not matched
         output = output.append(allwords, ignore_index=True)
 
-output.to_csv('output.csv', index=False)  # write to csv
+output.to_csv('Analyse Output.csv', index=False)  # write to csv
 
 print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
-ignore = input('output.csv ready.Press Enter to end program.')
+ignore = input('Analyse Output.csv ready.\nPress Enter to end program.')
 

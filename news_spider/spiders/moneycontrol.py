@@ -63,12 +63,11 @@ class NewsSpider(scrapy.Spider):
         links = response.css(".MT15 .FL a").xpath("@href").extract()
         article_links = []
         [article_links.append("https://www.moneycontrol.com"+i) for i in links if i not in article_links]
+
         try:
             items['stockname'] = response.css(".gry10:nth-child(1)::text").extract()[1].strip().split()[1]
         except:
-            pass
-
-        items['ztemp'] = response.request.url
+            items['stockname'] = ''
 
         for link in article_links:
             request = scrapy.Request(link, callback=self.parse_article)
@@ -78,7 +77,6 @@ class NewsSpider(scrapy.Spider):
     def parse_article(self,response):
         items = response.meta['items']
         items['article_link'] = response.request.url
-        items['title'] = response.css(".artTitle::text").extract()[0]
 
         article = response.xpath("//div[1]/section[2]/div[1]/div/article/div[3]/p").css("::text").extract()
         if article == []:
@@ -98,6 +96,14 @@ class NewsSpider(scrapy.Spider):
         article = article.encode(encoding='ascii', errors='ignore')  # Encoding article text in
 
         items['article'] = article
+
+        title = response.css(".artTitle::text").extract()[0]
+        title = title.lower()
+        words = title.split()
+        stripped = [w.translate(table) for w in words]
+        title = ' '.join(stripped)
+        items['title'] = title.encode(encoding='ascii', errors='ignore')
+
 
         dateandtime = response.css(".arttidate::text").extract()[0] # single item list of string
         dateandtime = dateandtime.split("  ")[0]        # removing "   | Source:"

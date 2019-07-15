@@ -37,7 +37,7 @@ if flag1 == 0 and flag2 == 1:
     data = et
 
 data = data.drop(columns="ztemp")
-data.to_csv('data.csv', index=False)  # write to csv
+data.to_csv('Scrape Output.csv', index=False)  # write to csv
 
 print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
-ignore = input('Data Scraped. Press Enter to continue.')
+ignore = input('Scrape Output.csv ready.\nPress Enter to continue.')
