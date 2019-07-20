@@ -3,6 +3,7 @@ from datetime import datetime
 import itertools
 from nltk.corpus import wordnet as wn
 import os
+import numpy as np
 
 data = pd.read_csv("Scrape Output.csv")  # read output of scrape.py
 
@@ -86,11 +87,61 @@ for i in inputcompanylist:
         print(i.upper(), 'not matched')
         allwords['COMPANYNAME'] = i.upper()
         for word in keywords:
-            allwords[word] = 'NA'   # adds NA for all keywords since company is not matched
+            allwords[word] = float('NaN')   # adds NA for all keywords since company is not matched
         output = output.append(allwords, ignore_index=True)
 
-output.to_csv('Analyse Output.csv', index=False)  # write to csv
+na_free = output.dropna()
+only_na = output[np.invert(output.index.isin(na_free.index))]
+output = output.dropna()
+
+red = float(inputdf['N_STDDEV_RED'].dropna().tolist()[0])
+amber = float(inputdf['N_STDDEV_AMBER'].dropna().tolist()[0])
+
+means = output.iloc[:, 1:].mean(axis=0).values.tolist()
+stds = output.iloc[:, 1:].std(axis=0).values.tolist()
+reds = [i+j*red for i, j in zip(means, stds)]
+ambers = [i+j*amber for i, j in zip(means, stds)]
+
+meansapp = ['mean']+means
+stdsapp = ['std']+stds
+redsapp = ['max_red']+reds
+ambersapp = ['max_amber']+ambers
+
+alldata = pd.DataFrame(columns=output.columns, data=[meansapp, stdsapp, redsapp, ambersapp])
+output = output.append(alldata, ignore_index=True)
+keywords = output.columns.tolist()
+keywords.remove('COMPANYNAME')
+
+red_alert = []
+amber_alert = []
+green = []
+
+for company in uniquecompanylist:
+    counts = output.query("COMPANYNAME == "+'\''+company+'\'').iloc[:, 1:].values.tolist()[0]
+    flag = 0
+    for red, count, keyword, amber in zip(reds, counts, keywords, ambers):
+        if count > red:
+            red_alert.append([company, keyword])
+            flag = 1
+
+        if count > amber and count < red:
+            amber_alert.append([company, keyword])
+            flag = 1
+
+    if flag == 0:
+        green.append(company)
+
+reddf = pd.DataFrame(red_alert, columns=['COMPANYNAME', 'KEYWORDS'])
+amberdf = pd.DataFrame(amber_alert, columns=['Companyname', 'KEYWORDS'])
+greendf = pd.DataFrame(green, columns=['COMPANYNAME'])
+
+writer = pd.ExcelWriter('Analyse Output.xlsx')
+output.to_excel(writer, sheet_name='stats', index=False)
+reddf.to_excel(writer, sheet_name='RED', index=False)
+amberdf.to_excel(writer, sheet_name='AMBER', index=False)
+greendf.to_excel(writer, sheet_name='GREEN', index=False)
+only_na.to_excel(writer, sheet_name="Not Found", index=False)
+writer.save()
 
 print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
 ignore = input('Analyse Output.csv ready.\nPress Enter to end program.')
-
