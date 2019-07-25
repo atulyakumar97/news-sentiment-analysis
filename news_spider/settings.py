@@ -20,6 +20,17 @@ NEWSPIDER_MODULE = 'news_spider.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+ROTATING_PROXY_LIST_PATH = './news_spider/proxies.txt'
+#DOWNLOAD_TIMEOUT = 15
+ROTATING_PROXY_PAGE_RETRY_TIMES = 5
+max_proxies_to_try = 20
+ROTATING_PROXY_LOGSTATS_INTERVAL = 30
+
+# ROTATING_PROXY_LIST = [
+#     # 'proxy1.com:8000',
+#     # 'proxy2.com:8031',
+#     # ...
+# ]
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -55,6 +66,11 @@ ROBOTSTXT_OBEY = False
 #DOWNLOADER_MIDDLEWARES = {
 #    'news_spider.middlewares.NewsSpiderDownloaderMiddleware': 543,
 #}
+
+DOWNLOADER_MIDDLEWARES = {
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html

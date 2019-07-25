@@ -119,17 +119,22 @@ green = []
 for company in uniquecompanylist:
     counts = output.query("COMPANYNAME == "+'\''+company+'\'').iloc[:, 1:].values.tolist()[0]
     flag = 0
+    red_keywords = []
+    amber_keywords = []
     for red, count, keyword, amber in zip(reds, counts, keywords, ambers):
         if count > red:
-            red_alert.append([company, keyword])
+            red_keywords.append(keyword)
             flag = 1
 
         if count > amber and count < red:
-            amber_alert.append([company, keyword])
+            amber_keywords.append(keyword)
             flag = 1
 
     if flag == 0:
         green.append(company)
+    else:
+        red_alert.append([company, red_keywords])
+        amber_alert.append([company, amber_keywords])
 
 reddf = pd.DataFrame(red_alert, columns=['COMPANYNAME', 'KEYWORDS'])
 amberdf = pd.DataFrame(amber_alert, columns=['Companyname', 'KEYWORDS'])

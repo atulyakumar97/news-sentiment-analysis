@@ -19,9 +19,11 @@ a = Analysis(['scrape.py'],
              ('C:\\Users\\Atulya\\Anaconda3\\Lib\\site-packages\\scrapy\\settings\\*.py','scrapy\\settings'),
              ('C:\\Users\\Atulya\\Anaconda3\\Lib\\site-packages\\scrapy\\spiders\\*.py','scrapy\\spiders'),
              ('C:\\Users\\Atulya\\Anaconda3\\Lib\\site-packages\\scrapy\\utils\\*.py','scrapy\\utils'),
-             ('C:\\Users\\Atulya\\Anaconda3\\Lib\\site-packages\\scrapy\\xlib\\*.py','scrapy\\xlib')
+             ('C:\\Users\\Atulya\\Anaconda3\\Lib\\site-packages\\scrapy\\xlib\\*.py','scrapy\\xlib'),
+             ('C:\\Users\\Atulya\\Anaconda3\\envs\\news-sentiment-analysis\\Lib\\site-packages\\rotating_proxies\\*py','rotating_proxies'),          
              ],
              hiddenimports=[
+             'urllib.request',
              'queuelib', 
              'scrapy.spiderloader',
              'news_spider.spiders',

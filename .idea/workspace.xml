@@ -3,97 +3,48 @@
   <component name="ChangeListManager">
     <list default="true" id="b81d948a-877c-4181-81e1-032edfa0d499" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analyse Output.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analyse Output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Analyse Output.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News Scraper.exe" beforeDir="false" afterPath="$PROJECT_DIR$/News Scraper.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrape Analyser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Analyser.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrape Output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Output.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/analyse/xref-analyse.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/xref-analyse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/xref-scrape.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/xref-scrape.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BANK OF BARODA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/BANK OF BARODA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BHARTI AIRTEL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/BHARTI AIRTEL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/ICICI BANK LTD..txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/ICICI BANK LTD..txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/INDIABULLS VENTURES LTD..txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/INDIABULLS VENTURES LTD..txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/PIDILITE INDUSTRIES LTD..txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/PIDILITE INDUSTRIES LTD..txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA MOTORS LTD..txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/TATA MOTORS LTD..txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA STEEL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/TATA STEEL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/WIPRO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Article Content Log/WIPRO.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_spider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape.spec" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.spec" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scrape.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analyse.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/items.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/pipelines.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_spider/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -102,65 +53,8 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>KEYWORDS</find>
-      <find>COMPANYNAME</find>
-      <find>items</find>
-      <find>csvinput</find>
-      <find>print</find>
-      <find>crisil</find>
-      <find>indiabulls ventures</find>
-      <find>indiabulls</find>
-      <find>bankin</find>
-      <find>indiabull</find>
-      <find>bank of</find>
-      <find>wipro</find>
-      <find>atulya123</find>
-      <find>article_link</find>
-      <find>date</find>
-      <find>12-0</find>
-      <find>IZMO</find>
-      <find>PETROL</find>
-      <find>POWER</find>
-      <find>nexturl1</find>
-      <find>ne</find>
-      <find>pipeline</find>
-      <find>read</find>
-      <find>ztemp</find>
-      <find>stock</find>
-      <find>data</find>
-      <find>title</find>
-      <find>stockname</find>
-      <find>final</find>
-      <find>NA</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/news_spider/news_spider/spiders/news_spider_economictimes.py" />
-        <option value="$PROJECT_DIR$/news_spider/news_spider/items.py" />
-        <option value="$PROJECT_DIR$/news_spider/news_spider/spiders/economictimes.py" />
-        <option value="$PROJECT_DIR$/news_spider/__init__.py" />
-        <option value="$PROJECT_DIR$/main2.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/analysis.py" />
-        <option value="$PROJECT_DIR$/export.py" />
-        <option value="$PROJECT_DIR$/news_spider/items.py" />
-        <option value="$PROJECT_DIR$/news_spider/pipelines.py" />
-        <option value="$PROJECT_DIR$/scrapeanalyser.py" />
-        <option value="$PROJECT_DIR$/newsscraper.py" />
-        <option value="$PROJECT_DIR$/scrape.py" />
-        <option value="$PROJECT_DIR$/news_spider/spiders/economictimes.py" />
-        <option value="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" />
-        <option value="$PROJECT_DIR$/news_spider/settings.py" />
-        <option value="$PROJECT_DIR$/analyse.py" />
-      </list>
-    </option>
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -172,37 +66,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="575" />
-    <option name="y" value="101" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
-  </component>
+  <component name="ProjectId" id="1OUKn8Qr5HvhYOQXJ31t8wgW4Fg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="news-sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="news-sentiment-analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="news-sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -221,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.analyse">
+  <component name="RunManager" selected="Python.scrape">
     <configuration name="analyse" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news-sentiment-analysis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -336,8 +202,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.analyse" />
         <item itemvalue="Python.scrape" />
+        <item itemvalue="Python.analyse" />
         <item itemvalue="Python.newsscraper" />
         <item itemvalue="Python.moneycontrol" />
         <item itemvalue="Python.main" />
@@ -357,121 +223,17 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24925596" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.3993559" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3268921" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.5185185" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.79710144" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31561998" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/spiders/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/spiders/news_spider_economictimes.py" />
-    <entry file="file://$PROJECT_DIR$/log.txt" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/items.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/pipelines.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/settings.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/spiders/financialexpress.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/news_spider/spiders/economictimes.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/spiders/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main2.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/envs/news-sentiment-analysis/Lib/site-packages/scrapy/spidermiddlewares/urllength.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis.py" />
-    <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/export.py" />
-    <entry file="file://$PROJECT_DIR$/scrapeanalyser.py" />
-    <entry file="file://$PROJECT_DIR$/newsscraper.py" />
-    <entry file="file://$PROJECT_DIR$/news_spider/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/spiders/moneycontrol.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analyse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_spider/spiders/economictimes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,6 +1,20 @@
 import pandas as pd
 import os
 
+proxies = int(pd.read_excel('input.xlsx', sheet_name='input')['ROTATING_PROXIES'].tolist()[0])
+
+import urllib.request
+url = "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt"
+print("Fetching Proxies from the internet")
+proxydata = urllib.request.urlopen(url).read().decode('utf-8')
+proxydata = proxydata.split()
+proxydata = proxydata[:proxies]
+file = open('./news_spider/proxies.txt', 'w')
+proxydata = '\n'.join(proxydata)
+file.write(proxydata)
+file.close()
+print("Downloaded ./news_spider/proxies.txt\nStarting Webcrawler")
+
 websites = pd.read_excel('input.xlsx', sheet_name='input')['WEBSITE']
 websites = websites.dropna().tolist()
 
