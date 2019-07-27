@@ -5,7 +5,12 @@ from nltk.corpus import wordnet as wn
 import os
 import numpy as np
 
-data = pd.read_csv("Scrape Output.csv")  # read output of scrape.py
+try:
+    data = pd.read_csv("Scrape Output.csv")  # read output of scrape.py
+except:
+    print('Scrape Output.csv file error')
+    print('Program Developed by linkedin.com/in/atulyakumar')
+    exit(0)
 
 inputdf = pd.read_excel('input.xlsx', sheet_name='input')  # read input
 inputdf = inputdf.drop(columns='WARNING')
@@ -76,7 +81,7 @@ for company in uniquecompanylist:
 
 from difflib import get_close_matches
 
-threshold = pd.read_excel('input.xlsx', sheet_name='input')['THRESHOLD']
+threshold = inputdf['THRESHOLD']
 threshold = float(threshold.dropna().tolist()[0])
 
 for i in inputcompanylist:
@@ -133,8 +138,10 @@ for company in uniquecompanylist:
     if flag == 0:
         green.append(company)
     else:
-        red_alert.append([company, red_keywords])
-        amber_alert.append([company, amber_keywords])
+        if red_keywords != [ ] :
+            red_alert.append([company, red_keywords])
+        if amber_keywords != [ ] :
+            amber_alert.append([company, amber_keywords])
 
 reddf = pd.DataFrame(red_alert, columns=['COMPANYNAME', 'KEYWORDS'])
 amberdf = pd.DataFrame(amber_alert, columns=['Companyname', 'KEYWORDS'])

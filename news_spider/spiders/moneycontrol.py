@@ -1,11 +1,15 @@
 import scrapy
 from ..items import NewsSpiderItem  # Container Class
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 import string
 import pandas as pd
 from nsepy import get_history
 from difflib import get_close_matches
+import sys
+import time
+
+count = 0
 
 
 class NewsSpider(scrapy.Spider):
@@ -13,14 +17,19 @@ class NewsSpider(scrapy.Spider):
     global excelinput
     global threshold
     global yearfrom
+    global count
 
-    threshold = pd.read_excel('input.xlsx', sheet_name='input')['THRESHOLD']
+
+    inputdf = pd.read_excel('input.xlsx', sheet_name='input')
+    proxies = int(inputdf['ROTATING_PROXIES'].tolist()[0])
+
+    threshold = inputdf['THRESHOLD']
     threshold = float(threshold.dropna().tolist()[0])
 
-    datefrom = pd.read_excel('input.xlsx', sheet_name='input')['DATEFROM']
+    datefrom = inputdf['DATEFROM']
     yearfrom = datefrom.dropna().tolist()[0].year
 
-    excelinput = pd.read_excel('input.xlsx', sheet_name='input')['COMPANYNAME']
+    excelinput = inputdf['COMPANYNAME']
     excelinput = excelinput.dropna().tolist()
     excelinput = [i.upper() for i in excelinput]
 
@@ -115,19 +124,34 @@ class NewsSpider(scrapy.Spider):
 
         datetime_object = datetime.strptime(dateandtime, '%b %d, %Y %I:%M %p')  # Scraped string to datetime object
         date = datetime_object.strftime("%d-%m-%Y")  # DD-MM-YY
-        time = datetime_object.strftime("%H:%M")  # HH:MM
+
+        yesterday = datetime_object.date() - timedelta(days=1)
 
         items['date'] = date
-        items['time'] = time
+        items['time'] = datetime_object.strftime("%H:%M")  # HH:MM
 
         try:
             stockdata = get_history(symbol=items['stockname'], start=datetime_object.date(), end=datetime_object.date())
             items['close'] = stockdata['Close'][0]
-            items['prevclose'] = stockdata['Prev Close'][0]
         except:
             items['close'] = 'NA'
+
+        try:
+            stockdata = get_history(symbol=items['stockname'], start=yesterday, end=yesterday)
+            items['prevclose'] = stockdata['Close'][0]
+        except:
             items['prevclose'] = 'NA'
+
 
         items['ztemp']=''
         items['website'] = 'moneycontrol'
+
+        global count
+        count = count + 1
+
+        if count % 10 == 0:
+            print('Update : Scraped ' + str(count) + ' articles from moneycontrol')
+
+        if count == 0:
+            print('No articles from economictimes downloaded')
         yield items

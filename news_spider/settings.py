@@ -25,7 +25,9 @@ ROTATING_PROXY_LIST_PATH = './news_spider/proxies.txt'
 ROTATING_PROXY_PAGE_RETRY_TIMES = 5
 max_proxies_to_try = 20
 ROTATING_PROXY_LOGSTATS_INTERVAL = 30
-
+LOG_ENABLED = False
+#DUPEFILTER_DEBUG=True
+#LOG_LEVEL='DEBUG'
 # ROTATING_PROXY_LIST = [
 #     # 'proxy1.com:8000',
 #     # 'proxy2.com:8031',
@@ -67,10 +69,22 @@ ROTATING_PROXY_LOGSTATS_INTERVAL = 30
 #    'news_spider.middlewares.NewsSpiderDownloaderMiddleware': 543,
 #}
 
-DOWNLOADER_MIDDLEWARES = {
-    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
-}
+import pandas as pd
+inputdf = pd.read_excel('input.xlsx', sheet_name='input')
+proxies = int(inputdf['ROTATING_PROXIES'].tolist()[0])
+
+if proxies == 0:
+      DOWNLOADER_MIDDLEWARES = {}
+else:
+      DOWNLOADER_MIDDLEWARES = {
+            'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+            'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+      }
+
+#DOWNLOADER_MIDDLEWARES = {
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
