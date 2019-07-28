@@ -79,9 +79,13 @@ if flag1 == 0 and flag2 == 0:
     print('No data scraped')
 
 try:
-    data = data.drop(columns="ztemp")
+    data['Date'] = pd.to_datetime(data.date, format='%d-%m-%Y')
+    data.sort_values(by=['COMPANYNAME', 'Date'], ascending=[True, False], inplace=True)
+    data.drop(["ztemp", "Date"], axis=1, inplace=True)
+
 except:
     pass
+
 data.to_csv('Scrape Output.csv', index=False)  # write to csv
 
 print('\nProgram Developed by linkedin.com/in/atulyakumar')

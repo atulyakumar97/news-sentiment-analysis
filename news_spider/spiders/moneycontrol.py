@@ -107,7 +107,7 @@ class NewsSpider(scrapy.Spider):
         except:
             fixedarticle = finalarticle
 
-        items['article'] = fixedarticle
+        items['article'] = fixedarticle.encode(encoding='ascii', errors='ignore')
 
         title = response.css(".artTitle::text").extract()[0]
         title = title.lower()

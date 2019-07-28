@@ -19,8 +19,11 @@ inputdf.drop(['WARNING', 'WARNING2'], axis=1, inplace=True)
 datefrom = inputdf['DATEFROM'].dropna().tolist()[0]
 dateto = inputdf['DATETO'].dropna().tolist()[0]
 
-keywords = inputdf['NEGATIVE_KEYWORDS'].tolist()
-output = pd.DataFrame(columns=['COMPANYNAME']+keywords)
+negkeywords = inputdf['NEGATIVE_KEYWORDS'].dropna().tolist()
+poskeywords = inputdf['POSITIVE_KEYWORDS'].dropna().tolist()
+
+negoutput = pd.DataFrame(columns=['COMPANYNAME']+negkeywords)
+posoutput = pd.DataFrame(columns=['COMPANYNAME']+poskeywords)
 
 searchoption = inputdf['SEARCH OPTION'].tolist()[0]
 
@@ -47,7 +50,7 @@ for company in uniquecompanylist:
         if datetime_object < datefrom or datetime_object > dateto:  # between datefrom and dateto
             continue
 
-        for word in keywords:
+        for word in negkeywords:
             similarwords = []
             for ss in wn.synsets(word):
                 similarwords.append([i for i in ss.lemma_names()])  # synonyms / similar words generator
@@ -65,7 +68,7 @@ for company in uniquecompanylist:
                     else:  # if keyword is new
                         allwords[word] = 1
 
-    for word in keywords:
+    for word in negkeywords:
         if word not in allwords:
             allwords[word] = 0  # set value if keyword not found
         else:
@@ -77,7 +80,7 @@ for company in uniquecompanylist:
     f.close()
 
     allwords['COMPANYNAME'] = company
-    output = output.append(allwords, ignore_index=True)
+    negoutput = negoutput.append(allwords, ignore_index=True)
 
 from difflib import get_close_matches
 
@@ -91,67 +94,75 @@ for i in inputcompanylist:
     else:
         print(i.upper(), 'not matched')
         allwords['COMPANYNAME'] = i.upper()
-        for word in keywords:
+        for word in negkeywords:
             allwords[word] = float('NaN')   # adds NA for all keywords since company is not matched
-        output = output.append(allwords, ignore_index=True)
+        negoutput = negoutput.append(allwords, ignore_index=True)
 
-na_free = output.dropna()
-only_na = output[np.invert(output.index.isin(na_free.index))]
-output = output.dropna()
-
-red = float(inputdf['N_STDDEV_RED'].dropna().tolist()[0])
-amber = float(inputdf['N_STDDEV_AMBER'].dropna().tolist()[0])
-
-means = output.iloc[:, 1:].mean(axis=0).values.tolist()
-stds = output.iloc[:, 1:].std(axis=0).values.tolist()
-reds = [i+j*red for i, j in zip(means, stds)]
-ambers = [i+j*amber for i, j in zip(means, stds)]
-
-meansapp = ['mean']+means
-stdsapp = ['std']+stds
-redsapp = ['max_red']+reds
-ambersapp = ['max_amber']+ambers
-
-alldata = pd.DataFrame(columns=output.columns, data=[meansapp, stdsapp, redsapp, ambersapp])
-output = output.append(alldata, ignore_index=True)
-keywords = output.columns.tolist()
-keywords.remove('COMPANYNAME')
-
-red_alert = []
-amber_alert = []
-green = []
+na_free = negoutput.dropna()
+only_na = negoutput[np.invert(negoutput.index.isin(na_free.index))]
+negoutput = negoutput.dropna()
 
 for company in uniquecompanylist:
-    counts = output.query("COMPANYNAME == "+'\''+company+'\'').iloc[:, 1:].values.tolist()[0]
-    flag = 0
-    red_keywords = []
-    amber_keywords = []
-    for red, count, keyword, amber in zip(reds, counts, keywords, ambers):
-        if count > red:
-            red_keywords.append(keyword)
-            flag = 1
+    allwords = {}
+    contents = data.query("COMPANYNAME == "+'\''+company+'\'')[searchdata].tolist()  # for keyword counting
+    dates = data.query("COMPANYNAME == " + '\'' + company + '\'')['date'].tolist()
+    links = data.query("COMPANYNAME == " + '\'' + company + '\'')['article_link'].tolist()  # for log\company.txt
 
-        if count > amber and count < red:
-            amber_keywords.append(keyword)
-            flag = 1
+    log = []
+    for date, content, link in zip(dates, contents, links):
+        datetime_object = datetime.strptime(date, '%d-%m-%Y')  # Scraped string to datetime object
+        if datetime_object < datefrom or datetime_object > dateto:  # between datefrom and dateto
+            continue
 
-    if flag == 0:
-        green.append(company)
-    else:
-        if red_keywords != [ ] :
-            red_alert.append([company, red_keywords])
-        if amber_keywords != [ ]:
-            amber_alert.append([company, amber_keywords])
+        for word in poskeywords:
+            similarwords = []
+            for ss in wn.synsets(word):
+                similarwords.append([i for i in ss.lemma_names()])  # synonyms / similar words generator
 
-reddf = pd.DataFrame(red_alert, columns=['COMPANYNAME', 'KEYWORDS'])
-amberdf = pd.DataFrame(amber_alert, columns=['Companyname', 'KEYWORDS'])
-greendf = pd.DataFrame(green, columns=['COMPANYNAME'])
+            similarwords = itertools.chain(*similarwords)   # list of lists to itertools object
+            similarwords = list(similarwords)  # itertools object to list
+            similarwords = similarwords + [word]  # also add original keyword incase similar words not found
+            similarwords = list(dict.fromkeys(similarwords))  # remove repetitions
 
-writer = pd.ExcelWriter('Analyse Output.xlsx')
-output.to_excel(writer, sheet_name='stats', index=False)
-reddf.to_excel(writer, sheet_name='RED', index=False)
-amberdf.to_excel(writer, sheet_name='AMBER', index=False)
-greendf.to_excel(writer, sheet_name='GREEN', index=False)
+            for similarword in similarwords:
+                if similarword in content:
+                    log.append(link)    # add url of article to log
+                    if word in allwords:  # if keyword has been counted once before
+                        allwords[word] = allwords[word] + 1
+                    else:  # if keyword is new
+                        allwords[word] = 1
+
+    for word in poskeywords:
+        if word not in allwords:
+            allwords[word] = 0  # set value if keyword not found
+        else:
+            pass
+    finallog = []
+    [finallog.append(i) for i in log if i not in finallog]  # only unique URLs in finallog
+    f = open(os.path.dirname(os.path.abspath(__file__))+"\\logs\\"+folder+"\\positive\\"+company+".txt", 'w')  # open log file
+    f.write('\n'.join(finallog))  # write log
+    f.close()
+
+    allwords['COMPANYNAME'] = company
+    posoutput = posoutput.append(allwords, ignore_index=True)
+
+pos_score = posoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True)
+neg_score = negoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True)
+
+negoutput = pd.concat([negoutput, neg_score], axis=1)
+negoutput.rename(columns={0: "NEG_COUNT"}, inplace=True)
+posoutput = pd.concat([posoutput, pos_score], axis=1)
+posoutput.rename(columns={0: "POS_COUNT"}, inplace=True)
+
+ratio = pd.concat([negoutput.COMPANYNAME, pos_score, neg_score], axis=1)
+ratio.rename(columns={0: "POS_COUNT", 1: "NEG_COUNT"}, inplace=True)
+ratio['Ratio'] = ratio['POS_COUNT']/ratio['NEG_COUNT']
+ratio['Score'] = ratio['POS_COUNT']-ratio['NEG_COUNT']
+
+writer = pd.ExcelWriter('Score Output.xlsx')
+ratio.to_excel(writer, sheet_name='ratio', index=False)
+negoutput.to_excel(writer, sheet_name='negative_counts', index=False)
+posoutput.to_excel(writer, sheet_name='positive_counts', index=False)
 only_na.to_excel(writer, sheet_name="Not Found", index=False)
 writer.save()
 
