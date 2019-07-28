@@ -19,7 +19,7 @@ inputdf = inputdf.drop(columns='WARNING2')
 datefrom = inputdf['DATEFROM'].dropna().tolist()[0]
 dateto = inputdf['DATETO'].dropna().tolist()[0]
 
-keywords = inputdf['KEYWORDS'].tolist()
+keywords = inputdf['NEGATIVE_KEYWORDS'].tolist()
 output = pd.DataFrame(columns=['COMPANYNAME']+keywords)
 
 searchoption = inputdf['SEARCH OPTION'].tolist()[0]
@@ -140,7 +140,7 @@ for company in uniquecompanylist:
     else:
         if red_keywords != [ ] :
             red_alert.append([company, red_keywords])
-        if amber_keywords != [ ] :
+        if amber_keywords != [ ]:
             amber_alert.append([company, amber_keywords])
 
 reddf = pd.DataFrame(red_alert, columns=['COMPANYNAME', 'KEYWORDS'])

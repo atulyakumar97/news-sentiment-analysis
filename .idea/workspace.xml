@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b81d948a-877c-4181-81e1-032edfa0d499" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analyse Output.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrape Analyser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Analyser.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrape Output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Output.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
@@ -15,14 +14,9 @@
       <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/base_library.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/economictimes.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moneycontrol.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/proxies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/proxies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/economictimes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

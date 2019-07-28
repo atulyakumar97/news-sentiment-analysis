@@ -6,9 +6,6 @@ import string
 import pandas as pd
 from nsepy import get_history
 from difflib import get_close_matches
-import sys
-import time
-
 count = 0
 
 
@@ -95,24 +92,35 @@ class NewsSpider(scrapy.Spider):
         article = ' '.join(article)  # Convert list to string
         article = article.lower()  # convert to lower case
 
-        words = article.split()  # Split article by whitespace into words
+        punct = set(string.punctuation)
+        finalarticle = ''
 
-        # remove punctuation from each word
-        table = str.maketrans('  ', '  ', string.punctuation)
-        stripped = [w.translate(table) for w in words]
-        article = ' '.join(stripped)
+        for i in article:
+            if i in punct:
+                finalarticle = finalarticle+' '
+            else:
+                finalarticle = finalarticle + i
 
-        article = article.encode(encoding='ascii', errors='ignore')  # Encoding article text in
+        finalarticle = finalarticle.encode(encoding='ascii', errors='ignore').decode('ascii')
+        try:
+            fixedarticle = re.sub('copyright  e[\s\w]*','', finalarticle)
+        except:
+            fixedarticle = finalarticle
 
-        items['article'] = article
+        items['article'] = fixedarticle
 
         title = response.css(".artTitle::text").extract()[0]
         title = title.lower()
-        words = title.split()
-        stripped = [w.translate(table) for w in words]
-        title = ' '.join(stripped)
-        items['title'] = title.encode(encoding='ascii', errors='ignore')
 
+        finaltitle = ''
+
+        for i in title:
+            if i in punct:
+                finaltitle = finaltitle + ' '
+            else:
+                finaltitle = finaltitle + i
+
+        items['title'] = finaltitle.encode(encoding='ascii', errors='ignore')
 
         dateandtime = response.css(".arttidate::text").extract()[0] # single item list of string
         dateandtime = dateandtime.split("  ")[0]        # removing "   | Source:"

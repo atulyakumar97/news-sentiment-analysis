@@ -6,9 +6,6 @@ import string
 import pandas as pd
 from nsepy import get_history
 from difflib import get_close_matches
-import os
-import sys
-import time
 count = 0
 
 
@@ -99,20 +96,29 @@ class NewsSpider(scrapy.Spider):
         article = ' '.join(article)                                 # Convert list to string
         article = article.lower()                                   # convert to lower case
 
-        words = article.split()                                     # Split article by whitespace into words
-        # remove punctuation from each word
-        table = str.maketrans('  ', '  ', string.punctuation)
-        stripped = [w.translate(table) for w in words]
-        article = ' '.join(stripped)
-        article = article.encode(encoding='ascii', errors='ignore')  # Encoding article text in
-        items['article'] = article
+        punct = set(string.punctuation)
+        finalarticle = ''
+
+        for i in article:
+            if i in punct:
+                finalarticle = finalarticle + ' '
+            else:
+                finalarticle = finalarticle + i
+
+        items['article'] = finalarticle.encode(encoding='ascii', errors='ignore')  # Encoding article text in
 
         title = response.css('.clearfix.title::text').extract()[0]  # Scrape title text
         title = title.lower()
-        words = title.split()
-        stripped = [w.translate(table) for w in words]
-        title = ' '.join(stripped)
-        items['title'] = title.encode(encoding='ascii', errors='ignore')
+
+        finaltitle = ''
+
+        for i in title:
+            if i in punct:
+                finaltitle = finaltitle + ' '
+            else:
+                finaltitle = finaltitle + i
+
+        items['title'] = finaltitle.encode(encoding='ascii', errors='ignore')
 
         dateandtimelist = response.css(".publish_on::text").extract()
         dateandtime = dateandtimelist[0]  # single item list of string
@@ -146,7 +152,7 @@ class NewsSpider(scrapy.Spider):
         items['website'] = 'economictimes'
 
         global count
-        count = count+1
+        count = count + 1
 
         if count % 10 == 0:
             print('Update : Scraped '+str(count)+' articles from economictimes')
