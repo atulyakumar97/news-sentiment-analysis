@@ -20,7 +20,9 @@ datefrom = inputdf['DATEFROM'].dropna().tolist()[0]
 dateto = inputdf['DATETO'].dropna().tolist()[0]
 
 negkeywords = inputdf['NEGATIVE_KEYWORDS'].dropna().tolist()
+neg_len = len(negkeywords)
 poskeywords = inputdf['POSITIVE_KEYWORDS'].dropna().tolist()
+pos_len = len(poskeywords)
 
 negoutput = pd.DataFrame(columns=['COMPANYNAME']+negkeywords)
 posoutput = pd.DataFrame(columns=['COMPANYNAME']+poskeywords)
@@ -146,8 +148,18 @@ for company in uniquecompanylist:
     allwords['COMPANYNAME'] = company
     posoutput = posoutput.append(allwords, ignore_index=True)
 
-pos_score = posoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True)
-neg_score = negoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True)
+if neg_len > pos_len:
+    pos_adjust = neg_len/pos_len
+    neg_adjust = 1
+elif neg_len < pos_len:
+    neg_adjust = pos_len/neg_len
+    pos_adjust = 1
+else:
+    neg_adjust = 1
+    pos_adjust = 1
+
+pos_score = posoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True) * pos_adjust
+neg_score = negoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True) * neg_adjust
 
 negoutput = pd.concat([negoutput, neg_score], axis=1)
 negoutput.rename(columns={0: "NEG_COUNT"}, inplace=True)

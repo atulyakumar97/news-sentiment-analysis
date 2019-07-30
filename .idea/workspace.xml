@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b81d948a-877c-4181-81e1-032edfa0d499" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Score Output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Score Output.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrape Analyser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Analyser.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrape Output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Output.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/EXE-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" afterDir="false" />
@@ -14,37 +13,7 @@
       <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/base_library.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/ABB INDIA LTD.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BANK OF BARODA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BHARAT PETROLEUM CORPORATION.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BHARTI AIRTEL LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BHARTI AIRTEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/BHORUKA STEEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/COAL INDIA LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/COAL INDIA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/CRISIL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/DEWAN HOUSING.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/ICICI BANK LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/ICICI BANK.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/INDIABULLS VENTURES LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/OIL INDIA LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/PI INDUSTRIES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/PIDILITE INDUSTRIES LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/PIDILITE INDUSTRIES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA MOTORS LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA MOTORS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA STEEL BSL LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/TATA STEEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/WIPRO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Content Log/warning.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Title Log/BANK OF BARODA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Title Log/BHORUKA STEEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Title Log/TATA STEEL BSL LTD..txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Title Log/TATA STEEL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Article Title Log/warning.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_spider/spiders/moneycontrol.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/score.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
