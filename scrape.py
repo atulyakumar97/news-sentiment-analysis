@@ -1,6 +1,8 @@
 import pandas as pd
 import os
 
+print('Program Developed by linkedin.com/in/atulyakumar\n')
+
 inputdf = pd.read_excel('input.xlsx', sheet_name='input')
 
 proxies = int(inputdf['ROTATING_PROXIES'].tolist()[0])

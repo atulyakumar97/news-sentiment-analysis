@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b81d948a-877c-4181-81e1-032edfa0d499" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analyse Output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Analyse Output.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News Scraper.exe" beforeDir="false" afterPath="$PROJECT_DIR$/News Scraper.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Score Output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Score Output.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrape Analyser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scrape Analyser.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyse.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyse.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/EXE-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PKG-00.pkg" afterDir="false" />
@@ -13,7 +16,17 @@
       <change beforePath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/PYZ-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/base_library.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/analyse/warn-analyse.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/warn-scrape.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scrape/xref-scrape.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/scrape/xref-scrape.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrape.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +75,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.score">
+  <component name="RunManager" selected="Python.analyse">
     <configuration name="analyse" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news-sentiment-analysis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,8 +190,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.score" />
         <item itemvalue="Python.analyse" />
+        <item itemvalue="Python.score" />
         <item itemvalue="Python.scrape" />
         <item itemvalue="Python.newsscraper" />
         <item itemvalue="Python.moneycontrol" />

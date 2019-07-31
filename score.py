@@ -5,7 +5,10 @@ from nltk.corpus import wordnet as wn
 import os
 import numpy as np
 
+print('Program Developed by linkedin.com/in/atulyakumar\n')
+
 try:
+    print('Reading Scrape Output.csv file\n')
     data = pd.read_csv("Scrape Output.csv")  # read output of scrape.py
 except:
     print('Scrape Output.csv file error')
@@ -40,6 +43,7 @@ elif searchoption == 'Article Title':
     searchdata = 'title'
     folder = 'Article Title Log'
 
+print('Counting Keywords')
 for company in uniquecompanylist:
     allwords = {}
     contents = data.query("COMPANYNAME == "+'\''+company+'\'')[searchdata].tolist()  # for keyword counting
@@ -178,5 +182,5 @@ posoutput.to_excel(writer, sheet_name='positive_counts', index=False)
 only_na.to_excel(writer, sheet_name="Not Found", index=False)
 writer.save()
 
-print('\n\nProgram Developed by linkedin.com/in/atulyakumar')
+print('\nProgram Developed by linkedin.com/in/atulyakumar')
 ignore = input('Analyse Output.csv ready.\nPress Enter to end program.')
