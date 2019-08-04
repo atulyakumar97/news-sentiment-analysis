@@ -1,5 +1,10 @@
 # News Sentiment Analysis
 
+The program crawls [moneycontrol](https://www.moneycontrol.com/) and [economictimes](https://economictimes.indiatimes.com/) to fetch data of companies listed in the input.xlsx file. Once the data is scraped and a csv file is built, relative analysis is done using analyse.py to classify the companies into RED, AMBER and GREEN. Absolute scoring is done using the score.py script.
+
+The [master branch](https://github.com/atulyakumar97/news-sentiment-analysis/tree/master) contains the source code for the application.<br>
+[dist-windows](https://github.com/atulyakumar97/news-sentiment-analysis/tree/dist-windows) branch contains the exe files and support files independant of the python installation.<br>
+
 ### Setup:
 
 1. Click <b>Clone or Download</b> and then <b>Download ZIP</b> button to download the application.
@@ -44,7 +49,7 @@
 | N_STDDEV_RED      | Float (0.5, 1, 1.5, 2)           | If keyword count greater than mean + (N_STDDEV_RED * stddev) then the company is labelled RED|
 | N_STDDEV_AMBER    | Float (0.5, 1, 1.5, 2)	      | If keyword count greater than mean + (N_STDDEV_AMBER * stddev) then the company is labelled AMBER |
 
-# License and Copyright
+### License and Copyright
 
 Licensed under the [MIT License](license.txt)
 	
