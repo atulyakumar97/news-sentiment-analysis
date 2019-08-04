@@ -45,4 +45,4 @@ pip install -r requirements.txt
 
 ### License and Copyright
 
-Licensed under the [MIT License](license.txt)
+Licensed under the [MIT License](LICENSE)
