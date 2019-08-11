@@ -166,14 +166,14 @@ pos_score = posoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True) * pos
 neg_score = negoutput.drop('COMPANYNAME', axis=1).sum(axis=1, skipna=True) * neg_adjust
 
 negoutput = pd.concat([negoutput, neg_score], axis=1)
-negoutput.rename(columns={0: "NEG_COUNT"}, inplace=True)
+negoutput.rename(columns={0: "NEG_SCORE"}, inplace=True)
 posoutput = pd.concat([posoutput, pos_score], axis=1)
-posoutput.rename(columns={0: "POS_COUNT"}, inplace=True)
+posoutput.rename(columns={0: "POS_SCORE"}, inplace=True)
 
 ratio = pd.concat([negoutput.COMPANYNAME, pos_score, neg_score], axis=1)
-ratio.rename(columns={0: "POS_COUNT", 1: "NEG_COUNT"}, inplace=True)
-ratio['Ratio'] = ratio['POS_COUNT']/ratio['NEG_COUNT']
-ratio['Score'] = ratio['POS_COUNT']-ratio['NEG_COUNT']
+ratio.rename(columns={0: "POS_SCORE", 1: "NEG_SCORE"}, inplace=True)
+ratio['Ratio'] = ratio['POS_SCORE']/ratio['NEG_SCORE']
+ratio['Net Score'] = ratio['POS_SCORE']-ratio['NEG_SCORE']
 
 writer = pd.ExcelWriter('Score Output.xlsx')
 ratio.to_excel(writer, sheet_name='ratio', index=False)
